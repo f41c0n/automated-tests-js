@@ -1,0 +1,42 @@
+{
+    "env": {
+        "es6": true,
+        "mocha": true,
+        "jasmine": true
+    },
+    "extends": "airbnb",
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "no-tabs": "off",
+        "quotes": [
+            "error",
+            "single",
+            {
+                "allowTemplateLiterals": true
+            }
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "arrow-body-style": [
+            "error",
+            "as-needed"
+        ],
+        "func-names": [
+            "error",
+            "never"
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "eol-last": [
+            "error",
+            "never"
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+--timeout 3000
+--reporter mocha-allure-reporter
+--reporter-options targetDir=../reports/integration/allure-results
+--retries 2
+--slow 1000

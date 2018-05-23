@@ -1,0 +1,49 @@
+{
+  "name": "jasmine2-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [
+    "testing",
+    "bdd",
+    "jasmine2",
+    "tests"
+  ],
+  "author": "Marcin Zietara",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/f41c0n/automated-tests-js.git"
+  },
+  "dependencies": {
+    "@types/jasmine": "^2.8.7",
+    "allure-commandline": "^2.5.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.22.0",
+    "jasmine-allure-reporter": "^1.0.2",
+    "jasmine-data-provider": "^2.2.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "protractor": "^5.3.2",
+    "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0"
+  },
+  "scripts": {
+    "update": "webdriver-manager update --chrome --gecko",
+    "lint": "eslint src",
+    "remove": "rimraf build/ && rimraf ../../reports/e2e/jasmine2/",
+    "build": "babel src -d build --copy-files",
+    "pretest": "npm run remove && npm run build",
+    "test": "protractor build/config.js",
+    "posttest": "allure generate ../../reports/e2e/jasmine2/allure-results --clean -o ../../reports/e2e/jasmine2/allure-report && allure open ../../reports/e2e/jasmine2/allure-report",
+    "test-grid": "npm run pretest && protractor build/grid-config.js"
+  }
+}

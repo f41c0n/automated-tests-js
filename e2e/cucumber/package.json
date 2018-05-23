@@ -1,0 +1,49 @@
+{
+  "name": "cucumber-poc",
+  "version": "1.0.0",
+  "description": "Protractor Cucumber POC in JavaScript",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "Marcin Zietara",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/f41c0n/automated-tests-js.git"
+  },
+  "keywords": [
+    "cucumber",
+    "gherkin",
+    "bdd"
+  ],
+  "dependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "cpx": "1.5.0",
+    "cucumber": "^4.2.1",
+    "cucumberjs-allure-reporter": "1.0.3",
+    "protractor": "5.3.2",
+    "protractor-cucumber-framework": "5.0.0",
+    "rimraf": "2.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0"
+  },
+  "scripts": {
+    "update": "webdriver-manager update --ie64 --chrome --gecko",
+    "lint": "eslint src",
+    "remove": "rimraf build/",
+    "build": "babel src -d build --copy-files",
+    "feature": "cpx src/**/*.feature build/",
+    "pretest": "npm run remove && npm run build && npm run feature",
+    "test": "protractor build/config.js",
+    "test-grid": "npm run pretest && protractor build/grid-config.js"
+  }
+}
